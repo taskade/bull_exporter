@@ -4,6 +4,7 @@ import { version } from '../package.json';
 
 export interface Options {
   url: string;
+  password?: string;
   prefix: string;
   metricPrefix: string;
   once: boolean;
@@ -23,6 +24,12 @@ export function getOptionsFromArgs(...args: string[]): Options {
         describe: 'A redis connection url',
         default: 'redis://127.0.0.1:6379',
         demandOption: true,
+      },
+      password: {
+        describe: 'redis password',
+        demandOption: false,
+        requiresArg: false,
+        type: 'string',
       },
       prefix: {
         alias: 'p',
